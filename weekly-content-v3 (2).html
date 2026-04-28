@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>엄마표영어 · 3주차 콘텐츠</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Serif+KR:wght@400;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green-deep:  #1A3829;
+  --green-mid:   #2B5440;
+  --green-light: #3D7A5A;
+  --gold:        #C9A84C;
+  --gold-light:  #E8D08A;
+  --cream:       #FAF8F3;
+  --warm-white:  #FFFFFF;
+  --border:      #E6E2DA;
+  --border-dark: #CEC9BF;
+  --ink:         #1C1A16;
+  --ink-mid:     #5C5750;
+  --ink-light:   #9A9490;
+  --kor-color:   #2D6E4E;
+  --eng-color:   #1E4FA0;
+  --edu-color:   #6040A8;
+  --red-color:   #C0321A;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--cream);
+  font-family: 'Noto Sans KR', sans-serif;
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ══ HEADER ══════════════════════════════════════════ */
+.header {
+  background: var(--green-deep);
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+}
+
+/* 대각선 텍스처 */
+.header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    -55deg,
+    transparent,
+    transparent 40px,
+    rgba(255,255,255,0.025) 40px,
+    rgba(255,255,255,0.025) 41px
+  );
+  pointer-events: none;
+}
+
+/* 우측 원형 장식 */
+.header::after {
+  content: '';
+  position: absolute;
+  right: -80px;
+  top: -80px;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,168,76,0.12) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.header-top-bar {
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding: 14px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 1;
+}
+.header-brand {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+}
+.header-date {
+  font-size: 11px;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.05em;
+}
+
+.header-body {
+  padding: 44px 48px 48px;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.header-left {}
+
+.week-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(201,168,76,0.15);
+  border: 1px solid rgba(201,168,76,0.35);
+  border-radius: 4px;
+  padding: 5px 12px;
+  margin-bottom: 18px;
+}
+.week-badge-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+.week-badge span {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--gold-light);
+  text-transform: uppercase;
+}
+
+.header-title {
+  font-family: 'DM Serif Display', 'Noto Serif KR', serif;
+  font-size: 42px;
+  line-height: 1.15;
+  color: #FFFFFF;
+  letter-spacing: -0.01em;
+  margin-bottom: 14px;
+}
+.header-title .week-num {
+  color: var(--gold);
+}
+.header-title .ko {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 36px;
+  font-weight: 700;
+  display: block;
+}
+
+.header-desc {
+  font-size: 13px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.03em;
+  line-height: 1.8;
+}
+
+.header-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+/* 통계 박스 */
+.stat-box {
+  display: flex;
+  gap: 1px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.12);
+}
+.stat-item {
+  background: rgba(255,255,255,0.06);
+  padding: 14px 20px;
+  text-align: center;
+  min-width: 70px;
+}
+.stat-item:not(:last-child) {
+  border-right: 1px solid rgba(255,255,255,0.08);
+}
+.stat-num {
+  font-family: 'DM Serif Display', serif;
+  font-size: 24px;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.stat-label {
+  font-size: 10px;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.08em;
+  font-weight: 500;
+}
+
+.btn-pdf {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--gold);
+  color: var(--green-deep);
+  border: none;
+  padding: 11px 22px;
+  border-radius: 6px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.btn-pdf:hover {
+  background: var(--gold-light);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(201,168,76,0.35);
+}
+
+/* ══ NOTICE BAR ══════════════════════════════════════ */
+.notice-bar {
+  background: var(--green-mid);
+  padding: 12px 48px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.65);
+}
+.notice-bar strong { color: var(--gold-light); font-weight: 600; }
+
+/* ══ MAIN ════════════════════════════════════════════ */
+.main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 44px 32px 100px;
+}
+
+/* ══ LEGEND ══════════════════════════════════════════ */
+.legend {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 40px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--warm-white);
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 20px;
+  font-size: 12px;
+  color: var(--ink-mid);
+  font-weight: 500;
+  flex: 1;
+  justify-content: center;
+}
+.legend-item:not(:last-child) {
+  border-right: 1px solid var(--border);
+}
+.legend-bar {
+  width: 14px; height: 3px;
+  border-radius: 2px;
+}
+
+.section { margin-bottom: 48px; }
+
+.section-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  padding: 16px 20px;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  border: none;
+}
+.section-accent { display: none; }
+.section-title-wrap {}
+.section-title-en {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: rgba(255,255,255,0.6);
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+.section-title-ko {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.2;
+}
+.section-count {
+  margin-left: auto;
+  font-size: 12px;
+  color: rgba(255,255,255,0.75);
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.25);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+/* ══ AGE GROUP ═══════════════════════════════════════ */
+.age-group { margin-bottom: 6px; }
+
+.age-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px 6px 10px;
+  border-radius: 0 20px 20px 0;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  margin-bottom: 8px;
+  margin-left: -32px;
+  padding-left: 32px;
+  position: relative;
+}
+.age-pill.kor { background: rgba(45,110,78,0.1); color: var(--kor-color); }
+.age-pill.eng { background: rgba(30,79,160,0.1); color: var(--eng-color); }
+
+/* ══ BOOK ROW ════════════════════════════════════════ */
+.book-row {
+  background: var(--warm-white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+.book-row:hover {
+  border-color: var(--border-dark);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+}
+
+.book-left-bar {
+  width: 4px;
+  flex-shrink: 0;
+}
+.book-left-bar.kor { background: var(--kor-color); }
+.book-left-bar.eng { background: var(--eng-color); }
+.book-left-bar.edu { background: var(--edu-color); }
+
+.book-inner {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  min-width: 0;
+}
+.book-info { flex: 1; min-width: 0; }
+
+.book-type-tag {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  display: block;
+}
+.book-type-tag.kor { color: var(--kor-color); }
+.book-type-tag.eng { color: var(--eng-color); }
+
+.book-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.45;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.book-title.en {
+  font-size: 13.5px;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.book-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 7px;
+}
+.badge {
+  font-size: 9.5px;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background: #F0EDE8;
+  color: #6A6258;
+  letter-spacing: 0.03em;
+}
+.badge-fantasy  { background: #EEF0FF; color: #3848C0; }
+.badge-adventure{ background: #FFF0EC; color: #B83820; }
+.badge-history  { background: #FFF8E4; color: #8A6808; }
+.badge-science  { background: #E8F4F0; color: #1E6A4A; }
+.badge-animal   { background: #F2EEFF; color: #5838A0; }
+.badge-travel   { background: #E8F8F2; color: #1E6A48; }
+.badge-space    { background: #EAF0FF; color: #2840C0; }
+.badge-robot    { background: #EEF4F8; color: #305070; }
+.badge-ocean    { background: #E4F4FF; color: #1050A0; }
+.badge-food     { background: #FFF4E8; color: #A05010; }
+.badge-words    { background: #EDF8ED; color: #285C28; }
+.badge-newspaper{ background: #F8F4EC; color: #705020; }
+.badge-writing  { background: #F2EEFF; color: #5030A0; }
+.badge-nature   { background: #EAF8EA; color: #2A6030; }
+.badge-default  { background: #F0EDE8; color: #6A6258; }
+
+.book-actions {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+  align-items: center;
+  padding-right: 4px;
+}
+
+.btn-a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  border: 1.5px solid;
+  white-space: nowrap;
+  transition: all 0.15s;
+  letter-spacing: 0.02em;
+}
+.btn-epic {
+  background: transparent;
+  color: var(--eng-color);
+  border-color: rgba(30,79,160,0.3);
+}
+.btn-epic:hover {
+  background: var(--eng-color);
+  color: #fff;
+  border-color: var(--eng-color);
+}
+.btn-buy {
+  background: var(--red-color);
+  color: #fff;
+  border-color: var(--red-color);
+}
+.btn-buy:hover {
+  background: #A02818;
+  border-color: #A02818;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(192,50,26,0.3);
+}
+
+/* ══ VIDEO ═══════════════════════════════════════════ */
+.video-row {
+  background: var(--warm-white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+.video-row:hover {
+  border-color: var(--border-dark);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+}
+.video-left-bar {
+  width: 4px;
+  background: var(--red-color);
+  flex-shrink: 0;
+}
+.video-inner {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 16px;
+}
+.video-thumb {
+  width: 120px;
+  aspect-ratio: 16/9;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #0f0f0f;
+  flex-shrink: 0;
+  position: relative;
+  cursor: pointer;
+  text-decoration: none;
+  display: block;
+}
+.video-thumb img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.2s;
+}
+.video-thumb:hover img { opacity: 0.82; }
+.video-play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.video-play-icon {
+  width: 30px; height: 30px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  color: #C0321A;
+  padding-left: 2px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+.video-info { flex: 1; min-width: 0; }
+.video-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+.video-meta {
+  font-size: 11px;
+  color: var(--ink-light);
+  margin-bottom: 7px;
+}
+.btn-yt {
+  background: var(--red-color);
+  color: #fff;
+  border-color: var(--red-color);
+}
+.btn-yt:hover {
+  background: #A02818;
+  border-color: #A02818;
+}
+
+/* ══ EDU ══════════════════════════════════════════════ */
+.edu-row {
+  background: var(--warm-white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: stretch;
+  transition: box-shadow 0.2s;
+}
+.edu-row:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+}
+.edu-inner {
+  flex: 1;
+  padding: 14px 16px;
+}
+.edu-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.edu-desc {
+  font-size: 12px;
+  color: var(--ink-mid);
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+/* ══ DIVIDER ═════════════════════════════════════════ */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 8px 0 44px;
+}
+.divider-line {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+.divider-diamond {
+  width: 6px; height: 6px;
+  background: var(--gold);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+/* ══ FOOTER ══════════════════════════════════════════ */
+.footer {
+  margin-top: 60px;
+  padding: 28px 32px;
+  background: var(--green-deep);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.footer-left {
+  font-size: 12px;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.8;
+}
+.footer-left strong {
+  color: var(--gold-light);
+  display: block;
+  font-size: 13px;
+  margin-bottom: 2px;
+}
+.footer-right {
+  font-size: 10px;
+  color: rgba(255,255,255,0.25);
+  text-align: right;
+  line-height: 1.8;
+}
+
+/* ══ PRINT ═══════════════════════════════════════════ */
+@media print {
+  .btn-pdf { display: none !important; }
+  body { background: white; }
+  .notice-bar { display: none; }
+  .video-thumb { display: none; }
+  .book-row, .video-row, .edu-row { box-shadow: none !important; }
+  .header, .section-header, .footer, .notice-bar {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+
+/* ══ MOBILE ══════════════════════════════════════════ */
+@media (max-width: 640px) {
+  .header-top-bar { padding: 12px 20px; }
+  .header-body { padding: 24px 20px 28px; }
+  .header-title { font-size: 28px; }
+  .header-title .ko { font-size: 22px; }
+  .stat-box { display: none; }
+  .notice-bar { padding: 12px 20px; font-size: 13px; line-height: 1.7; }
+  .main { padding: 24px 16px 80px; }
+  .legend-item { padding: 10px 10px; font-size: 11px; gap: 5px; }
+  .section-header { padding: 14px 16px; border-radius: 8px; }
+  .section-title-ko { font-size: 16px; }
+
+  /* 연령 필 — 네거티브 마진 제거 */
+  .age-pill { margin-left: 0; padding-left: 12px; border-radius: 6px; }
+
+  /* 책 카드 — 세로 레이아웃으로 전환 */
+  .book-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 14px 14px 12px;
+    gap: 8px;
+  }
+  .book-info { width: 100%; }
+  .book-type-tag { white-space: nowrap; }
+  .book-title {
+    white-space: normal;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    font-size: 15px;
+    overflow: visible;
+    text-overflow: unset;
+  }
+  .book-badges { margin-top: 6px; }
+  .badge { font-size: 10px; padding: 3px 9px; }
+  .book-actions {
+    width: 100%;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 0;
+    gap: 8px;
+  }
+  .btn-a { font-size: 12px; padding: 8px 14px; }
+
+  /* 영상 카드 — 모바일 세로 레이아웃 */
+  .video-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 14px 14px 12px;
+    gap: 10px;
+  }
+  .video-thumb {
+    width: 100%;
+    aspect-ratio: 16/9;
+    border-radius: 6px;
+  }
+  .video-info { width: 100%; }
+  .video-title { font-size: 14px; }
+  .video-meta { font-size: 11px; }
+  .video-row .book-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .footer { padding: 20px; border-radius: 8px; }
+  .divider { margin: 4px 0 32px; }
+}
+
+/* ══ FADE IN ══════════════════════════════════════════ */
+.fade-up {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeUp 0.45s ease forwards;
+}
+@keyframes fadeUp { to { opacity: 1; transform: none; } }
+.book-row:nth-child(1)  { animation-delay: 0.04s; }
+.book-row:nth-child(2)  { animation-delay: 0.08s; }
+.book-row:nth-child(3)  { animation-delay: 0.12s; }
+.book-row:nth-child(4)  { animation-delay: 0.16s; }
+.book-row:nth-child(5)  { animation-delay: 0.20s; }
+.video-row:nth-child(1) { animation-delay: 0.04s; }
+.video-row:nth-child(2) { animation-delay: 0.08s; }
+.video-row:nth-child(3) { animation-delay: 0.12s; }
+</style>
+</head>
+<body>
+
+<!-- ══ HEADER ══ -->
+<div class="header">
+  <div class="header-top-bar">
+    <span class="header-brand">엄마표영어 · 구독 콘텐츠</span>
+    <span class="header-date">2025년 1월 3주 &nbsp;·&nbsp; 1.13 – 1.19</span>
+  </div>
+  <div class="header-body">
+    <div class="header-left">
+      <div class="week-badge">
+        <div class="week-badge-dot"></div>
+        <span>Vol. 03</span>
+      </div>
+      <h1 class="header-title">
+        <span class="week-num">Vol.03</span>
+        <span class="ko">이번 주 콘텐츠 리스트</span>
+      </h1>
+      <p class="header-desc">
+        한글책 · 영어책 · 추천 영상 · 신문 활동<br>
+        2025년 1월 3주 &nbsp;·&nbsp; 1월 13일 – 19일
+      </p>
+    </div>
+    <div class="header-right">
+      <div class="stat-box">
+        <div class="stat-item">
+          <div class="stat-num">7</div>
+          <div class="stat-label">한글책</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">7</div>
+          <div class="stat-label">영어책</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">3</div>
+          <div class="stat-label">영상</div>
+        </div>
+      </div>
+      <button class="btn-pdf" onclick="window.print()">
+        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 3v13m0 0l-4-4m4 4l4-4M3 17v3a1 1 0 001 1h16a1 1 0 001-1v-3"/></svg>
+        PDF로 저장
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ NOTICE ══ -->
+<div class="notice-bar">
+  💡&nbsp;
+  <span><strong>에픽(Epic)</strong> 버튼이 있는 책은 에픽 회원이라면 앱에서 바로 읽으실 수 있어요. 실물 도서를 원하신다면 구매 버튼을 참고해주세요.</span>
+</div>
+
+<!-- ══ MAIN ══ -->
+<div class="main">
+
+  <!-- 범례 -->
+  <div class="legend">
+    <div class="legend-item"><div class="legend-bar" style="background:var(--kor-color)"></div>한글책</div>
+    <div class="legend-item"><div class="legend-bar" style="background:var(--eng-color)"></div>영어책</div>
+    <div class="legend-item"><div class="legend-bar" style="background:var(--edu-color)"></div>교육활동</div>
+    <div class="legend-item"><div class="legend-bar" style="background:var(--red-color)"></div>추천영상</div>
+  </div>
+
+  <!-- ══ 한글책 ══ -->
+  <div class="section">
+    <div class="section-header" style="background:var(--kor-color)">
+      <div class="section-title-wrap">
+        <div class="section-title-en">Korean Books</div>
+        <div class="section-title-ko">한글책</div>
+      </div>
+      <span class="section-count">7권</span>
+    </div>
+
+    <!-- 5세 -->
+    <div class="age-group">
+      <div class="age-pill kor">5세</div>
+      <div class="book-row fade-up">
+        <div class="book-left-bar kor"></div>
+        <div class="book-inner">
+          <div class="book-info">
+            <span class="book-type-tag kor">한글책</span>
+            <div class="book-title">까만 크레파스와 요술기차</div>
+            <div class="book-badges">
+              <span class="badge badge-fantasy">판타지</span>
+              <span class="badge badge-travel">기차여행</span>
+              <span class="badge badge-default">그림책</span>
+            </div>
+          </div>
+          <div class="book-actions">
+            <a href="https://www.coupang.com/np/search?q=까만+크레파스와+요술기차" target="_blank" class="btn-a btn-buy">🛒 구매</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="book-row fade-up">
+        <div class="book-left-bar kor"></div>
+        <div class="book-inner">
+          <div class="book-info">
+            <span class="book-type-tag kor">한글책</span>
+            <div class="book-title">열두 달 지하철 여행</div>
+            <div class="book-badges">
+              <span class="badge badge-travel">여행</span>
+              <span class="badge badge-nature">계절</span>
+            </div>
+          </div>
+          <div class="book-actions">
+            <a href="https://www.coupang.com/np/search?q=열두달+지하철+여행" target="_blank" class="btn-a btn-buy">🛒 구매</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="book-row fade-up">
+        <div class="book-left-bar kor"></div>
+        <div class="book-inner">
+          <div class="book-info">
+            <span class="book-type-tag kor">한글책</span>
+            <div class="book-title">기차 여행은 즐거워요</div>
+            <div class="book-badges">
+              <span class="badge badge-travel">기차</span>
+              <span class="badge badge-default">그림책</span>
+            </div>
+          </div>
+          <div class="book-actions">
+            <a href="https://www.coupang.com/np/search?q=기차+여행은+즐거워요" target="_blank" class="btn-a btn-buy">🛒 구매</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7세 -->
+    <div class="age-group">
+      <div class="age-pill kor">7세</div>
+      <div class="book-row fade-up">
+        <div class="book-left-bar kor"></div>
+        <div class="book-inner">
+          <div class="book-info">
+            <span class="book-type-tag kor">한글책</span>
+            <div class="book-title">왠지 이상한 동물도감</div>
+            <div class="book-badges">
+              <span class="badge badge-animal">동물</span>
+              <span class="badge badge-default">유머</span>
+            </div>
+          </div>
+          <div class="book-actions">
+            <a href="https://www.coupang.com/np/search?q=왠지+이상한+동물도감" target="_blank" class="btn-a btn-buy">🛒 구매</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 초1 -->
+    <div class="age-group">
+      <div class="age-pill kor">초1</div>
+      <div class="book-row fade-up">
+        <div class="book-left-bar kor"></div>
+        <div class="book-inner">
+          <div class="book-info">
+            <span class="book-type-tag kor">한글책</span>
+            <div class="book-title">주만지</div>
+            <div class="book-badges">
+              <span class="badge badge-fantasy">판타지</span>
+              <span class="badge badge-adventure">모험</span>
+              <span class="badge badge-nature">정글</span>
+            </div>
+          </div>
+          <div class="book-actions">
+            <a href="https://www.coupang.com/np/search?q=주만지+그림책" target="_blank" class="btn-a btn-buy">🛒 구매</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="book-row fade-up">
+        <div class="book-left-bar kor"></div>
+        <div class="book-inner">
+          <div class="book-info">
+            <span class="book-type-tag kor">한글책</span>
+            <div class="book-title">설민석의 한국사 대모험</div>
+            <div class="book-badges">
+              <span class="badge badge-history">역사</span>
+              <span class="badge badge-adventure">모험</span>
+              <span class="badge badge-default">만화</span>
+            </div>
+          </div>
+          <div class="book-actions">
+            <a href="https://www.coupang.com/np/search?q=설민석+한국사+대모험" target="_blank" class="btn-a btn-buy">🛒 구매</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="book-row fade-up">
+        <div class="book-left-bar kor"></div>
+        <div class="book-inner">
+          <div class="book-info">
+            <span class="book-type-tag kor">한글책</span>
+            <div class="book-title">잠수 로봇의 바다 탐험</div>
+            <div class="book-badges">
+              <span class="badge badge-robot">로봇</span>
+              <span class="badge badge-ocean">바다</span>
+              <span class="badge badge-science">과학</span>
+            </div>
+          </div>
+          <div class="book-actions">
+            <a href="https://www.coupang.com/np/search?q=잠수+로봇+바다+탐험" target="_blank" class="btn-a btn-buy">🛒 구매</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+
+  <!-- ══ 영어책 ══ -->
+  <div class="section">
+    <div class="section-header" style="background:var(--eng-color)">
+      <div class="section-title-wrap">
+        <div class="section-title-en">English Books</div>
+        <div class="section-title-ko">영어책</div>
+      </div>
+      <span class="section-count">7권</span>
+    </div>
+
+    <!-- 5세 -->
+    <div class="age-group">
+      <div class="age-pill eng">5세</div>
+
+      <div class="book-row fade-up">
+        <div class="book-left-bar eng"></div>
+        <div class="book-inner">
+          <div class="book-info">
+            <span class="book-type-tag eng">영어책</span>
+            <div class="book-title en">I Want to Be an Astronaut</div>
+            <div class="book-badges">
+              <span class="badge badge-space">우주</span>
+              <span class="badge badge-science">과학</span>
+              <span class="badge badge-default">꿈·직업</span>
+            </div>
+          </div>
+          <div class="book-actions">
+            <a href="https://www.getepic.com/book/example" target="_blank" class="btn-a btn-epic">📖 에픽</a>
+            <a href="https://www.coupang.com/np/search?q=I+Want+to+Be+an+Astronaut" target="_blank" class="btn-a btn-buy">🛒 구매</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="book-row fade-up">
+        <div class="book-left-bar eng"></div>
+        <div class="book-inner">
+          <div class="book-info">
+            <span class="book-type-tag eng">영어책</span>
+            <div class="book-title en">The Little Mouse, the Red Ripe Strawberry,<br>and the Big Hungry Bear</div>
+            <div class="book-badges">
+              <span class="badge badge-animal">동물</span>
+              <span class="badge badge-food">음식</span>
+              <span class="badge badge-default">나눔</span>
+            </div>
+          </div>
+          <div class="book-actions">
+            <a href="https://www.getepic.com/book/example2" target="_blank" class="btn-a btn-epic">📖 에픽</a>
+            <a href="https://www.coupang.com/np/search?q=Little+Mouse+Red+Ripe+Strawberry" target="_blank" class="btn-a btn-buy">🛒 구매</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7세 -->
+    <div class="age-group">
+      <div class="age-pill eng">7세</div>
+
+      <div class="book-row fade-up">
+        <div class="book-left-bar eng"></div>
+        <div class="book-inner">
+          <div class="book-info">
+            <span class="book-type-tag eng">영어책</span>
+            <div class="book-title en">Knight Owl and Early Bird</div>
+            <div class="book-badges">
+              <span class="badge badge-animal">동물</span>
+              <span class="badge badge-fantasy">기사</span>
+              <span class="badge badge-default">라임</span>
+            </div>
+          </div>
+          <div class="book-actions">
+            <a href="https://www.coupang.com/np/search?q=Knight+Owl+Early+Bird" target="_blank" class="btn-a btn-buy">🛒 구매</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="book-row fade-up">
+        <div class="book-left-bar eng"></div>
+        <div class="book-inner">
+          <div class="book-info">
+            <span class="book-type-tag eng">영어책</span>
+            <div class="book-title en">The BFG <span style="font-size:11px;font-style:normal;color:var(--ink-light);font-weight:400;">— Roald Dahl</span></div>
+            <div class="book-badges">
+              <span class="badge badge-fantasy">판타지</span>
+              <span class="badge badge-adventure">모험</span>
+              <span class="badge badge-default">거인</span>
+            </div>
+          </div>
+          <div class="book-actions">
+            <a href="https://www.getepic.com/book/example3" target="_blank" class="btn-a btn-epic">📖 에픽</a>
+            <a href="https://www.coupang.com/np/search?q=The+BFG" target="_blank" class="btn-a btn-buy">🛒 구매</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="book-row fade-up">
+        <div class="book-left-bar eng"></div>
+        <div class="book-inner">
+          <div class="book-info">
+            <span class="book-type-tag eng">영어책</span>
+            <div class="book-title en">See You Later, Alligator!</div>
+            <div class="book-badges">
+              <span class="badge badge-animal">동물</span>
+              <span class="badge badge-words">표현</span>
+              <span class="badge badge-default">라임</span>
+            </div>
+          </div>
+          <div class="book-actions">
+            <a href="https://www.coupang.com/np/search?q=See+You+Later+Alligator" target="_blank" class="btn-a btn-buy">🛒 구매</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="book-row fade-up">
+        <div class="book-left-bar eng"></div>
+        <div class="book-inner">
+          <div class="book-info">
+            <span class="book-type-tag eng">영어책</span>
+            <div class="book-title en">On the Way Home <span style="font-size:11px;font-style:normal;color:var(--ink-light);font-weight:400;">— Jill Murphy</span></div>
+            <div class="book-badges">
+              <span class="badge badge-fantasy">상상력</span>
+              <span class="badge badge-default">이야기</span>
+            </div>
+          </div>
+          <div class="book-actions">
+            <a href="https://www.coupang.com/np/search?q=On+the+Way+Home+Jill+Murphy" target="_blank" class="btn-a btn-buy">🛒 구매</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 초4 -->
+    <div class="age-group">
+      <div class="age-pill eng">초4</div>
+      <div class="book-row fade-up">
+        <div class="book-left-bar eng"></div>
+        <div class="book-inner">
+          <div class="book-info">
+            <span class="book-type-tag eng">영어책</span>
+            <div class="book-title en">Dog Diaries 시리즈</div>
+            <div class="book-badges">
+              <span class="badge badge-animal">동물</span>
+              <span class="badge badge-default">시리즈</span>
+              <span class="badge badge-default">챕터북</span>
+            </div>
+          </div>
+          <div class="book-actions">
+            <a href="https://www.getepic.com/book/example4" target="_blank" class="btn-a btn-epic">📖 에픽</a>
+            <a href="https://www.coupang.com/np/search?q=Dog+Diaries" target="_blank" class="btn-a btn-buy">🛒 구매</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 초5 -->
+    <div class="age-group">
+      <div class="age-pill eng">초5</div>
+      <div class="book-row fade-up">
+        <div class="book-left-bar eng"></div>
+        <div class="book-inner">
+          <div class="book-info">
+            <span class="book-type-tag eng">영어책</span>
+            <div class="book-title en">Frindle <span style="font-size:11px;font-style:normal;color:var(--ink-light);font-weight:400;">— Andrew Clements</span></div>
+            <div class="book-badges">
+              <span class="badge badge-words">언어</span>
+              <span class="badge badge-default">창의력</span>
+              <span class="badge badge-default">챕터북</span>
+            </div>
+          </div>
+          <div class="book-actions">
+            <a href="https://www.getepic.com/book/example5" target="_blank" class="btn-a btn-epic">📖 에픽</a>
+            <a href="https://www.coupang.com/np/search?q=Frindle" target="_blank" class="btn-a btn-buy">🛒 구매</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+
+  <!-- ══ 교육활동 ══ -->
+  <div class="section">
+    <div class="section-header" style="background:var(--edu-color)">
+      <div class="section-title-wrap">
+        <div class="section-title-en">Activities</div>
+        <div class="section-title-ko">신문 읽기 활동</div>
+      </div>
+      <span class="section-count">2개</span>
+    </div>
+
+    <div class="edu-row">
+      <div class="book-left-bar edu"></div>
+      <div class="edu-inner">
+        <div class="edu-title">📰 기사 선택 후 코멘트 쓰기 <span style="font-size:11px;color:var(--ink-light);font-weight:400;margin-left:6px;">초4</span></div>
+        <div class="edu-desc">마음에 드는 기사를 직접 골라 낱말 사전 찾기 + 한 줄 코멘트 작성</div>
+        <div class="book-badges"><span class="badge badge-newspaper">신문</span><span class="badge badge-words">어휘</span><span class="badge badge-writing">글쓰기</span></div>
+      </div>
+    </div>
+
+    <div class="edu-row">
+      <div class="book-left-bar edu"></div>
+      <div class="edu-inner">
+        <div class="edu-title">💻 태블릿으로 신문 글쓰기 <span style="font-size:11px;color:var(--ink-light);font-weight:400;margin-left:6px;">초5</span></div>
+        <div class="edu-desc">디지털 도구를 활용해 신문 형식으로 직접 기사 써보기</div>
+        <div class="book-badges"><span class="badge badge-newspaper">신문</span><span class="badge badge-writing">글쓰기</span><span class="badge badge-default">디지털</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+
+  <!-- ══ 영상 ══ -->
+  <div class="section">
+    <div class="section-header" style="background:var(--red-color)">
+      <div class="section-title-wrap">
+        <div class="section-title-en">Recommended Videos</div>
+        <div class="section-title-ko">이번 주 추천 영상</div>
+      </div>
+      <span class="section-count">3편</span>
+    </div>
+
+    <div class="video-row fade-up">
+      <div class="video-left-bar"></div>
+      <div class="video-inner">
+        <a class="video-thumb" href="https://youtu.be/MaRVMDl8A_k" target="_blank">
+          <img src="https://img.youtube.com/vi/MaRVMDl8A_k/hqdefault.jpg" alt="Animal Songs">
+          <div class="video-play"><div class="video-play-icon">▶</div></div>
+        </a>
+        <div class="video-info">
+          <div class="video-title">Animal Songs Compilation — Super Simple Songs</div>
+          <div class="video-meta">대상: 5~7세 &nbsp;·&nbsp; 약 30분 &nbsp;·&nbsp; 영어 노래</div>
+          <div class="book-badges"><span class="badge badge-animal">동물</span><span class="badge badge-default">노래</span><span class="badge badge-default">반복학습</span></div>
+        </div>
+        <div class="book-actions" style="flex-shrink:0">
+          <a href="https://youtu.be/MaRVMDl8A_k" target="_blank" class="btn-a btn-yt">▶ 보기</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="video-row fade-up">
+      <div class="video-left-bar"></div>
+      <div class="video-inner">
+        <a class="video-thumb" href="https://youtu.be/YfGKPFEBwEU" target="_blank">
+          <img src="https://img.youtube.com/vi/YfGKPFEBwEU/hqdefault.jpg" alt="Frindle Read Aloud">
+          <div class="video-play"><div class="video-play-icon">▶</div></div>
+        </a>
+        <div class="video-info">
+          <div class="video-title">Frindle — Read Aloud (Storyline Online)</div>
+          <div class="video-meta">대상: 초4~5 &nbsp;·&nbsp; 약 25분 &nbsp;·&nbsp; 영어 리드얼라우드</div>
+          <div class="book-badges"><span class="badge badge-words">언어</span><span class="badge badge-default">리드얼라우드</span></div>
+        </div>
+        <div class="book-actions" style="flex-shrink:0">
+          <a href="https://youtu.be/YfGKPFEBwEU" target="_blank" class="btn-a btn-yt">▶ 보기</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="video-row fade-up">
+      <div class="video-left-bar"></div>
+      <div class="video-inner">
+        <a class="video-thumb" href="https://youtu.be/7k5lCMfQVjk" target="_blank">
+          <img src="https://img.youtube.com/vi/7k5lCMfQVjk/hqdefault.jpg" alt="The BFG">
+          <div class="video-play"><div class="video-play-icon">▶</div></div>
+        </a>
+        <div class="video-info">
+          <div class="video-title">The BFG — Animated Story</div>
+          <div class="video-meta">대상: 7세~ &nbsp;·&nbsp; 약 20분 &nbsp;·&nbsp; 영어</div>
+          <div class="book-badges"><span class="badge badge-fantasy">판타지</span><span class="badge badge-adventure">모험</span></div>
+        </div>
+        <div class="book-actions" style="flex-shrink:0">
+          <a href="https://youtu.be/7k5lCMfQVjk" target="_blank" class="btn-a btn-yt">▶ 보기</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ FOOTER ══ -->
+  <div class="footer">
+    <div class="footer-left">
+      <strong>엄마표영어 구독 콘텐츠</strong>
+      Vol.03 &nbsp;·&nbsp; 2025년 1월 3주 &nbsp;·&nbsp; 총 17개 콘텐츠
+    </div>
+    <div class="footer-right">
+      본 자료는 구독 회원 전용입니다.<br>
+      무단 배포를 금합니다.
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
